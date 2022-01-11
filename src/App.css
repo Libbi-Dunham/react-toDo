@@ -1,3 +1,22 @@
+body {
+  background-color: #9999c3;
+  font-family: 'FuntypeRegular';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.log {
+  border-radius: 50px;
+}
+
+.email {
+  border-radius: 50px;
+}
+
+.password {
+  border-radius: 50px;
+}
+
 .App {
   text-align: center;
 }
