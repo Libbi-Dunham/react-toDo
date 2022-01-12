@@ -5,8 +5,32 @@ body {
   font-style: normal;
 }
 
+.control {
+  border-radius: 50px;
+}
+
+.submit {
+  border-radius: 50px;
+}
+
+.submit:hover {
+  background-color: #9999c3;
+}
+
+.save-task {
+  border-radius: 50px;
+}
+
+.save-task:hover {
+  background-color: #9999c3;
+}
+
 .log {
   border-radius: 50px;
+}
+
+.log:hover {
+  background-color: #9999c3;
 }
 
 .email {

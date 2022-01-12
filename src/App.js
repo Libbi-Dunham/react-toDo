@@ -4,6 +4,7 @@ import { getUser, logout } from './services/users';
 import Auth from './Views/Auth/Auth';
 import './App.css';
 import TodoList from './Views/ToDo/TodoList';
+import ToDo from './Views/ToDo';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
@@ -18,6 +19,7 @@ function App() {
           <Route path="/">
             {currentUser && (
               <>
+                <ToDo />
                 <TodoList setCurrentUser={setCurrentUser} />
                 <button className="log" onClick={logoutUser}>
                   Log Out
