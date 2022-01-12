@@ -1,27 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import { fetchToDos } from '../services/todo';
+import { fetchToDos, todoCompleted } from '../services/todo';
 import TodoTask from '../components/TodoTask';
 
 export default function ToDo() {
-  const [task, setTask] = useState([]);
+  //   const [task, setTask] = useState([]);
+  const [currentTasks, setCurrentTask] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const taskData = await fetchToDos();
-      setTask(taskData);
+      setCurrentTask(taskData);
     };
     fetchData();
   }, []);
 
+  const handleClick = async (todo) => {
+    await todoCompleted(todo.id, !todo.is_complete);
+    setCurrentTask((prevState) =>
+      prevState.map((todo) =>
+        todo.id === todo.id ? { ...todo, is_complete: !todo.is_complete } : todo
+      )
+    );
+  };
+
   return (
-    <div>
-      <ul>
-        {task.map((obj) => (
-          <div key={task.id}>
-            <TodoTask input="radio" {...obj} />
-          </div>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div>
+        <ul>
+          {currentTasks.map((todo) => (
+            <div key={todo.id}>
+              <TodoTask todo={todo} handleClick={handleClick} />
+            </div>
+          ))}
+        </ul>
+      </div>
+      {/* <div>
+        <ul>
+          {task.map((obj) => (
+            <div key={task.id}>
+              <TodoTask input="checkbox" {...obj} />
+            </div>
+          ))}
+        </ul>
+      </div> */}
+    </>
   );
 }

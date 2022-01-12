@@ -5,15 +5,7 @@ import ToDoForm from '../../components/ToDoForm/ToDoForm';
 
 export default function TodoList() {
   const [task, setTask] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const taskData = await fetchToDos();
-  //     console.log(fetchToDos());
-  //     setTask(taskData);
-  //   };
-  //   fetchData();
-  // }, []);
+  // const [currentTasks, setCurrentTask] = useState([]);
 
   const handleSubmit = async (e) => {
     try {
@@ -25,21 +17,30 @@ export default function TodoList() {
     }
   };
 
+  // const handleClick = async (todo) => {
+  //   await todoCompleted(todo.id, !todo.is_completed);
+  //   setTask((prevState) =>
+  //     prevState.map((todo) =>
+  //       todo.id === todo.id ? { ...todo, is_completed: !todo.is_completed } : todo
+  //     )
+  //   );
+  // };
+
   return (
     <>
-      <div>
-        <h1>Add a New Task</h1>
-        <ToDoForm task={task} setTask={setTask} handleSubmit={handleSubmit} />
-      </div>
       {/* <div>
         <ul>
-          {task.map((item) => (
-            <div key={task.id}>
-              <TodoTask input="radio" {...item} />
+          {currentTasks.map((todo) => (
+            <div key={todo.id}>
+              <TodoTask todo={todo} handleClick={handleClick} />
             </div>
           ))}
         </ul>
       </div> */}
+      <div>
+        <h1>Add a New Task</h1>
+        <ToDoForm task={task} setTask={setTask} handleSubmit={handleSubmit} />
+      </div>
     </>
   );
 }
