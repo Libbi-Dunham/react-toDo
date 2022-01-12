@@ -9,8 +9,8 @@ export default function ToDoForm({ task, setTask, handleSubmit }) {
           <label>Task: </label>
           <input
             className="control"
-            placeholder="task"
             type="text"
+            placeholder="task"
             value={task}
             onChange={(e) => {
               setTask(e.target.value);
