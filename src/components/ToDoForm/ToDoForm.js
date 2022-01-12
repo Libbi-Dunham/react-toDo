@@ -17,9 +17,11 @@ export default function ToDoForm({ task, setTask, handleSubmit }) {
             }}
           />
         </div>
-        <input className="save-task" type="radio" onClick={handleSubmit}>
-          Save
-        </input>
+        <div className="action">
+          <button className="save-task" onClick={handleSubmit}>
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );

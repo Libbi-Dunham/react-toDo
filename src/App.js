@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { getUser, logout } from './services/users';
 import Auth from './Views/Auth/Auth';
 import './App.css';
+import TodoList from './Views/ToDo/TodoList';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
@@ -17,7 +18,7 @@ function App() {
           <Route path="/">
             {currentUser && (
               <>
-                <h1>I am signed in</h1>
+                <TodoList setCurrentUser={setCurrentUser} />
                 <button className="log" onClick={logoutUser}>
                   Log Out
                 </button>

@@ -4,6 +4,7 @@ import ToDoForm from '../../components/ToDoForm/ToDoForm';
 
 export default function TodoList() {
   const [task, setTask] = useState([]);
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
