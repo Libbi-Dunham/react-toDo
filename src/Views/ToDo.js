@@ -3,7 +3,6 @@ import { fetchToDos, todoCompleted } from '../services/todo';
 import TodoTask from '../components/TodoTask';
 
 export default function ToDo() {
-  //   const [task, setTask] = useState([]);
   const [currentTasks, setCurrentTask] = useState([]);
 
   useEffect(() => {
@@ -34,15 +33,6 @@ export default function ToDo() {
           ))}
         </ul>
       </div>
-      {/* <div>
-        <ul>
-          {task.map((obj) => (
-            <div key={task.id}>
-              <TodoTask input="checkbox" {...obj} />
-            </div>
-          ))}
-        </ul>
-      </div> */}
     </>
   );
 }
