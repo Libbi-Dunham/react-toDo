@@ -13,6 +13,8 @@ export default function TodoList() {
     } catch {
       alert('No Success!');
     }
+    setTask('');
+    window.location.reload();
   };
 
   return (
