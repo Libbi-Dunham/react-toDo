@@ -16,3 +16,8 @@ export async function todoCompleted(id, is_complete) {
   const response = await client.from('todos').update({ is_complete }).eq('id', id);
   return checkError(response);
 }
+
+export async function deleteTodoById(id) {
+  const resp = await client.from('todos').delete().match({ id });
+  return checkError(resp);
+}
